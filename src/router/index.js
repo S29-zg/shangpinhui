@@ -4,6 +4,17 @@ import UseRegister from "@/page/Register/UseRegister.vue";
 import UseHome from "@/page/Home/UseHome.vue";
 import UseSearch from "@/page/Search/UseSearch.vue";
 
+let prePush=VueRouter.prototype.push
+VueRouter.prototype.push=function (location,resolve,reject){
+    console.log(this)
+    if(resolve&&reject){
+        prePush.call(this,location)
+    }else {
+        prePush.call(this,location,()=>{},()=>{})
+    }
+
+}
+
 export default new VueRouter({
     routes: [
         {
@@ -24,7 +35,8 @@ export default new VueRouter({
 
         },
         {
-            path:'/Search',
+            name:'search',
+            path:'/Search/:key?',
             component:UseSearch,
             meta: { show: true }
 

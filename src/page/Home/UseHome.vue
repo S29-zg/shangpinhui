@@ -6,7 +6,6 @@ import UseLike from "@/page/Home/Like/UseLike.vue";
 import UseListContainer from "@/page/Home/ListContainer/UseListContainer.vue";
 import UseRank from "@/page/Home/Rank/UseRank.vue";
 import UseTodayRecommend from "@/page/Home/TodayRecommend/UseTodayRecommend.vue";
-import UseTypeNav from "@/page/Home/TypeNav/UseTypeNav.vue";
 
 export default defineComponent({
     name: "UseHome",
@@ -16,8 +15,7 @@ export default defineComponent({
         UseLike,
         UseListContainer,
         UseRank,
-        UseTodayRecommend,
-        UseTypeNav
+        UseTodayRecommend
     }
 })
 </script>

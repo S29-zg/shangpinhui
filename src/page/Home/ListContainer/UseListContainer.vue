@@ -17,15 +17,7 @@ export default defineComponent({
                         <div class="swiper-slide">
                             <img src="../../images/home/banner1.jpg" />
                         </div>
-                        <div class="swiper-slide">
-                            <img src="../../images/home/banner2.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../images/home/banner3.jpg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../images/home/banner4.jpg" />
-                        </div>
+
                     </div>
                     <!-- 如果需要分页器 -->
                     <div class="swiper-pagination"></div>
@@ -190,7 +182,7 @@ export default defineComponent({
           width: 25%;
 
           .list-item {
-            //background-image: url(Brand/images/home/icons.png);
+            background-image: url(../../images/home/icons.png);
             width: 61px;
             height: 40px;
             display: block;

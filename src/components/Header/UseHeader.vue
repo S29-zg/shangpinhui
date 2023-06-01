@@ -3,7 +3,22 @@
 export default ({
     name:'UseHeader',
     components:{
-
+    },
+    data(){
+        return{
+            key:''
+        }
+    },
+    methods:{
+        search(){
+            this.$router.push({
+                name:'search',
+                params:{
+                    key:this.key
+                }
+            })
+            console.log(this.$router)
+        }
     }
 })
 </script>
@@ -42,8 +57,8 @@ export default ({
             </h1>
             <div class="searchArea">
                 <form action="###" class="searchForm">
-                    <input type="text" id="autocomplete" class="input-error input-xxlarge" />
-                    <button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+                    <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="key" />
+                    <button class="sui-btn btn-xlarge btn-danger" type="button" @click="search()">搜索</button>
                 </form>
             </div>
         </div>

@@ -123,7 +123,7 @@ export default defineComponent({
             width: 35px;
             height: 35px;
             display: block;
-            //background: url(Brand/images/home/bg0.png);
+            background: url(../../images/home/bg0.png);
             margin-left: 10px;
           }
         }

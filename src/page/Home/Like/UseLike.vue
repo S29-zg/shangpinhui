@@ -83,7 +83,7 @@ export default defineComponent({
 
       .fr {
         float: right;
-        //background-image: url(src/page/images/home/icons.png);
+        background-image: url(../../images/home/icons.png);
         width: 66px;
         height: 25px;
         background-position: 182px -104px;
