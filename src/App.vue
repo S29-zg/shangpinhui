@@ -9,6 +9,7 @@
 <script>
 import UseHeader from "@/components/Header/UseHeader.vue";
 import UseFooter from "@/components/Footer/UseFooter.vue";
+
 export default {
   name: 'App',
   components: {
