@@ -3,7 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import router from './router'
 import UseTypeNav from "@/page/Home/TypeNav/UseTypeNav.vue";
-
+import store from "@/store/store";
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 
@@ -11,5 +11,6 @@ Vue.use(VueRouter)
 Vue.component('UseTypeNav',UseTypeNav)
 new Vue({
   render: h => h(App),
-  router:router
+  router:router,
+  store
 }).$mount('#app')
