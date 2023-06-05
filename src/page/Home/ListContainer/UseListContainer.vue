@@ -1,8 +1,31 @@
 <script>
 import {defineComponent} from 'vue'
-
+import {mapState} from "vuex";
+import Swiper from 'swiper/bundle';
 export default defineComponent({
-    name: "UseListContainer"
+    name: "UseListContainer",
+    computed:{
+        ...mapState('home',['bannerList'])
+    },
+    mounted() {
+     new Swiper ('.swiper', {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable:true
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+        })
+
+    },
+
 })
 </script>
 
@@ -12,12 +35,11 @@ export default defineComponent({
         <div class="sortList clearfix">
             <div class="center">
                 <!--banner轮播-->
-                <div class="swiper-container" id="mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="../../images/home/banner1.jpg" />
+                <div class="swiper" >
+                    <div class="swiper-wrapper" >
+                        <div class="swiper-slide" v-for="banner in bannerList" :key="banner.id">
+                            <img :src="banner.imgUrl" />
                         </div>
-
                     </div>
                     <!-- 如果需要分页器 -->
                     <div class="swiper-pagination"></div>
@@ -25,6 +47,7 @@ export default defineComponent({
                     <!-- 如果需要导航按钮 -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
+
                 </div>
             </div>
             <div class="right">
@@ -112,6 +135,9 @@ export default defineComponent({
 </template>
 
 <style scoped lang="less">
+.swiper-button-prev ,.swiper-button-next{
+    color: red;
+}
 .list-container {
   width: 1200px;
   margin: 0 auto;

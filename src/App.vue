@@ -15,7 +15,11 @@ export default {
   components: {
       UseHeader,
       UseFooter
-  }
+  },
+    mounted() {
+        this.$store.dispatch('home/categoryList')
+        this.$store.dispatch('home/showBanners')
+    }
 }
 </script>
 

@@ -2,7 +2,8 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-    name: "UseBrand"
+    name: "UseBrand",
+
 })
 </script>
 

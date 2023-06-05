@@ -1,3 +1,4 @@
+//vue-router的配置
 import VueRouter from 'vue-router'
 import UseLogin from "@/page/Login/UseLogin.vue";
 import UseRegister from "@/page/Register/UseRegister.vue";
@@ -36,7 +37,7 @@ export default new VueRouter({
         },
         {
             name:'search',
-            path:'/Search/:key?',
+            path:'/Search',
             component:UseSearch,
             meta: { show: true }
 
