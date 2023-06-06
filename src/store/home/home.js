@@ -11,7 +11,6 @@ const mutations = {
         state.categoryList = categoryList.data
     },
     getBanners(state, banners) {
-        console.log("banners", banners)
         state.bannerList = banners.data
     }
 }

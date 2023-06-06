@@ -19,6 +19,7 @@ export default {
     mounted() {
         this.$store.dispatch('home/categoryList')
         this.$store.dispatch('home/showBanners')
+        this.$store.dispatch('floor/getFloors')
     }
 }
 </script>
