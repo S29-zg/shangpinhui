@@ -6,6 +6,7 @@ import UseLike from "@/page/Home/Like/UseLike.vue";
 import UseListContainer from "@/page/Home/ListContainer/UseListContainer.vue";
 import UseRank from "@/page/Home/Rank/UseRank.vue";
 import UseTodayRecommend from "@/page/Home/TodayRecommend/UseTodayRecommend.vue";
+import {mapState} from "vuex";
 
 export default defineComponent({
     name: "UseHome",
@@ -16,6 +17,9 @@ export default defineComponent({
         UseListContainer,
         UseRank,
         UseTodayRecommend
+    },
+    computed: {
+        ...mapState('floor', ['floorList'])
     }
 })
 </script>
@@ -27,7 +31,7 @@ export default defineComponent({
         <UseTodayRecommend></UseTodayRecommend>
         <UseRank></UseRank>
         <UseLike></UseLike>
-        <UseFloor></UseFloor>
+        <UseFloor v-for="(floor,index) in floorList" :key="index" :floor="floor"></UseFloor>
         <UseBrand></UseBrand>
     </div>
 

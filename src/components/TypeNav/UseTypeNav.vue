@@ -6,7 +6,8 @@ export default defineComponent({
     name: "UseTypeNav",
     data() {
         return {
-            bgColor: 'white'
+            bgColor: 'white',
+            isShow:true
         }
     },
     computed: {
@@ -29,11 +30,28 @@ export default defineComponent({
                     category1Id:id
                 }
             })
+        },
+        showCateList(){
+            if(this.$route.path==='/Search'){
 
+                this.isShow=true
+            }
+        },
+        noShowCateList(){
+            if(this.$route.path==='/Search'){
+
+                this.isShow=false
+            }
         }
-
-
+    },
+    mounted() {
+        if(this.$route.path==='/Search'){
+            this.isShow=false
+        }else if (this.$route.path==='/Home'){
+            this.isShow=true
+        }
     }
+
 })
 
 </script>
@@ -42,8 +60,8 @@ export default defineComponent({
   <!-- 商品分类导航 -->
     <div class="type-nav">
         <div class="container">
-            <h2 class="all">全部商品分类</h2>
-            <nav class="nav">
+            <h2 class="all" @mouseenter="showCateList" >全部商品分类</h2>
+            <nav class="nav" >
                 <a href="###">服装城</a>
                 <a href="###">美妆馆</a>
                 <a href="###">尚品汇超市</a>
@@ -53,7 +71,7 @@ export default defineComponent({
                 <a href="###">有趣</a>
                 <a href="###">秒杀</a>
             </nav>
-            <div class="sort">
+            <div class="sort" v-show="isShow" @mouseleave="noShowCateList">
                 <div class="all-sort-list2" >
                     <div class="item bo" v-for="categoryLevel1 in categoryList" :key="categoryLevel1.categoryId" >
                         <h3 @mouseover="showBlue(categoryLevel1.categoryId)"

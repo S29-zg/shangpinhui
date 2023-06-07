@@ -1,33 +1,10 @@
 <script>
 import {defineComponent} from 'vue'
-import {mapState} from "vuex";
-import Swiper from 'swiper/bundle';
 
 export default defineComponent({
     name: "UseFloor",
-    computed:{
-        ...mapState('floor',['floorList'])
-    },
-    watch:{
-        floorList(){
-            this.$nextTick(function (){
-                new Swiper('.swiper',{
-                    loop: true, // 循环模式选项
+    props: ['floor'],
 
-                    // 如果需要分页器
-                    pagination: {
-                        el: '.swiper-pagination',
-                    },
-
-                    // 如果需要前进后退按钮
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                })
-            })
-        }
-    }
 })
 </script>
 
@@ -39,7 +16,7 @@ export default defineComponent({
                 <h3 class="fl">家用电器</h3>
                 <div class="fr">
                     <ul class="nav-tabs clearfix">
-                        <li class="active" v-for="(nav,index) in floorList[0].navList" :key="index">
+                        <li class="active" v-for="(nav,index) in floor.navList" :key="index">
                             <a :href="nav.url" data-toggle="tab">{{ nav.text }}</a>
                         </li>
                     </ul>
@@ -50,46 +27,33 @@ export default defineComponent({
                     <div class="floor-1">
                         <div class="blockgary">
                             <ul class="jd-list">
-                                <li v-for="(keyword,index) in floorList[0].keywords " :key="index">{{ keyword }}</li>
+                                <li v-for="(keyword,index) in floor.keywords " :key="index">{{ keyword }}</li>
 
                             </ul>
-                            <img :src="floorList[0].imgUrl" />
+                            <img :src="floor.imgUrl"/>
                         </div>
                         <div class="floorBanner">
-                            <div class="swiper" >
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide" v-for="floor in floorList[0].carouselList" :key="floor.id">
-                                        <img :src="floor.imgUrl">
-                                    </div>
-
-                                </div>
-                                <!-- 如果需要分页器 -->
-                                <div class="swiper-pagination"></div>
-
-                                <!-- 如果需要导航按钮 -->
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </div>
+                            <UseCarousel :list="floor.carouselList"></UseCarousel>
                         </div>
                         <div class="split">
                             <span class="floor-x-line"></span>
                             <div class="floor-conver-pit">
-                                <img src="../../images/home/floor-1-2.png" />
+                                <img :src="floor.recommendList[0]"/>
                             </div>
                             <div class="floor-conver-pit">
-                                <img src="../../images/home/floor-1-3.png" />
+                                <img :src="floor.recommendList[1]"/>
                             </div>
                         </div>
                         <div class="split center">
-                            <img src="../../images/home/floor-1-4.png" />
+                            <img :src="floor.bigImg"/>
                         </div>
                         <div class="split">
                             <span class="floor-x-line"></span>
                             <div class="floor-conver-pit">
-                                <img src="../../images/home/floor-1-5.png" />
+                                <img :src="floor.recommendList[2]"/>
                             </div>
                             <div class="floor-conver-pit">
-                                <img src="../../images/home/floor-1-6.png" />
+                                <img :src="floor.recommendList[3]"/>
                             </div>
                         </div>
                     </div>

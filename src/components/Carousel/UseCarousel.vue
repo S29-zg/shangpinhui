@@ -1,0 +1,54 @@
+<script>
+import {defineComponent} from 'vue'
+import Swiper from 'swiper/bundle';
+export default defineComponent({
+    name: "UseCarousel",
+    props:['list'],
+    watch: {
+        list: {
+            immediate: true,
+            handler() {
+                this.$nextTick(function () {
+                    new Swiper('.swiper', {
+                        loop: true, // 循环模式选项
+
+                        // 如果需要分页器
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+
+                        // 如果需要前进后退按钮
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    })
+                })
+            }
+
+        }
+    },
+})
+</script>
+
+<template>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="floor in list" :key="floor.id">
+                <img :src="floor.imgUrl">
+            </div>
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+</template>
+
+<style scoped lang="less">
+
+</style>
