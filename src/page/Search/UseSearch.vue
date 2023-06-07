@@ -1,12 +1,12 @@
 <script >
 import {defineComponent} from 'vue'
 import {mapState} from "vuex";
-import SearchSelectora from "@/page/Search/SearchSelector/SearchSelector.vue";
+import SearchSelector from "@/page/Search/SearchSelector/SearchSelector.vue";
 export default defineComponent({
     name: "UseSearch",
-    components:[
-        SearchSelectora
-    ],
+    components:{
+        SearchSelector
+    },
     computed:{
         ...mapState('search',['shopList'])
     },
