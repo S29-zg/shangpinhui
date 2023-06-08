@@ -22,7 +22,31 @@ const actions = {
         }
     }
 }
-const getters = {}
+
+const getters = {
+    //加入网络缓慢，没有将数据传递给state会导致问题，此时可以赋值空数组
+    attrsList(state){
+        return state.shopList.attrsList||[]
+    },
+    goodsList(state){
+        return state.shopList.goodsList||[]
+    },
+    trademarkList(state){
+        return state.shopList.trademarkList||[]
+    },
+    pageNo(state){
+        return state.shopList.pageNo||0
+    },
+    pageSize(state){
+        return state.shopList.pageSize||0
+    },
+    total(state){
+        return state.shopList.total||0
+    },
+    totalPages(state){
+        return state.shopList.totalPages||0
+    }
+}
 
 export default {
     namespaced:true,

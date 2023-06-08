@@ -17,7 +17,6 @@ export default ({
                     key:this.key
                 }
             })
-            console.log(this.$router)
         }
     }
 })
