@@ -34,22 +34,7 @@
 
   export default defineComponent({
     name: 'SearchSelector',
-      data(){
-        return{
-            searchParams:{
-                category1Id: "",
-                category2Id: "",
-                category3Id: "",
-                categoryName: "",
-                keyword: "",
-                order: "",
-                pageNo: 1,
-                pageSize: 9,
-                props: "",
-                trademark: ""
-            }
-        }
-      },
+
       computed:{
         ...mapGetters('search',['attrsList','trademarkList'])
       }

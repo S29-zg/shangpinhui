@@ -3,7 +3,11 @@ import ajaxMock from "@/api/ajaxMock";
 export const reqCategoryList = request.get(
     '/product/getBaseCategoryList'
 )
-export const shopListbyCateLevel1=(data)=>request.post('/list',data)
+export const shopListbyCateLevel1=(data)=>request({
+    method:"post",
+    url:'/list',
+    data:data
+})
 
 
 export const banners=ajaxMock.get('/banners')

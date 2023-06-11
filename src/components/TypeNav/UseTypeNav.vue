@@ -22,30 +22,30 @@ export default defineComponent({
 
         },
         getShopList(name,id) {
-            console.log("name:" ,name,"id:",id )
             this.$router.push({
                 name:'search',
                 query:{
                     categoryName:name,
                     category1Id:id
-                }
+                },
+                params: this.$route.params
             })
         },
         showCateList(){
-            if(this.$route.path==='/Search'){
+            if(this.$route.path.includes('/Search')){
 
                 this.isShow=true
             }
         },
         noShowCateList(){
-            if(this.$route.path==='/Search'){
+            if(this.$route.path.includes('/Search')){
 
                 this.isShow=false
             }
         }
     },
     mounted() {
-        if(this.$route.path==='/Search'){
+        if(this.$route.path.includes('/Search')){
             this.isShow=false
         }else if (this.$route.path==='/Home'){
             this.isShow=true
