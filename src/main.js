@@ -17,5 +17,8 @@ Vue.component('UseCarousel',UseCarousel)
 new Vue({
   render: h => h(App),
   router:router,
-  store
+  store,
+  beforeCreate() {
+    Vue.prototype.$bus=this
+  }
 }).$mount('#app')

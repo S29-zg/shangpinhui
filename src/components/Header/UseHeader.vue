@@ -19,6 +19,9 @@ export default ({
                 query:this.$route.query
             })
         }
+    },
+    mounted() {
+        this.$bus.$on('clear')
     }
 })
 </script>

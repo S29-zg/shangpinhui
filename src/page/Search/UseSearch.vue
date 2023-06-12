@@ -43,6 +43,25 @@ export default defineComponent({
                     params:this.$route.params
                 })
             }
+        },
+        removeKey(){
+            this.searchParams.keyword = undefined
+            this.getData()
+            this.$bus.$emit('clear')
+            if(this.$route.query){
+                this.$router.push({
+                    name:'search',
+                    query:this.$route.query,
+                })
+            }
+        },
+        removeTrademark(){
+            this.searchParams.trademark = undefined
+            this.getData()
+        },
+        getTrademark(trademark){
+            this.searchParams.trademark=trademark
+            this.getData()
         }
     },
     beforeMount() {
@@ -75,13 +94,14 @@ export default defineComponent({
                         </li>
                     </ul>
                     <ul class="fl sui-tag">
-                        <li class="with-x" v-if="searchParams.categoryName">{{ searchParams.categoryName }}<i
-                                @click="removeCate">×</i></li>
+                        <li class="with-x" v-if="searchParams.categoryName">{{ searchParams.categoryName }}<i @click="removeCate">×</i></li>
+                        <li class="with-x" v-if="searchParams.keyword">{{ searchParams.keyword }}<i @click="removeKey">×</i></li>
+                        <li class="with-x" v-if="searchParams.trademark">{{ searchParams.trademark.split(':')[1] }}<i @click="removeTrademark">×</i></li>
                     </ul>
                 </div>
 
                 <!--selector-->
-                <SearchSelector/>
+                <SearchSelector @getTrademark="getTrademark"/>
 
                 <!--details-->
                 <div class="details clearfix">
